@@ -10,7 +10,6 @@
 
 ```
 ln -s /Users/mac/Documents/code/f-com /Users/mac/Documents/program/
-
 ```
 
 如果没有权限侧执行：
@@ -27,12 +26,10 @@ cmd:
 
 ```
 mklink /j D:\script\code\f-com D:\program\vue-helloword
-
 ```
 
 powershell:
 
 ```
 cmd /c mklink /j D:\script\code\f-com D:\program\vue-helloword
-
 ```
