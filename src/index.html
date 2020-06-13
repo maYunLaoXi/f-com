@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     /**
+      * 算出一年有多少个周，并返回每一同的开始和结束时间
+      * 
+     */
+const mapWeeksOfyear = ({ year, week } = {}) => {
+    const handleYear = year ? year : new Date().getFullYear()
+    // 一年的开始和结束时间
+    const yearBegin = new Date(`${handleYear}/01/01 00:00:00`)
+    const yearEnd = new Date(`${handleYear}/12/31 00:00:00`)
+    const aDay = 24 * 60 * 60 * 1000
+    const aWeek = aDay * 7
+
+    const beginTime = handleDay(yearBegin, aDay)
+    const arr  = getWeek(beginTime, yearEnd.getTime(), aWeek) 
+    return arr
+  }
+  
+function getWeek (beginTime, endTime, aWeek) {
+  const arr = []
+  
+  for(let i = beginTime; i <= endTime; i += aWeek) {
+      let time = new Date(i)
+      arr.push({
+          startTime: i,
+          endTime: i + aWeek,
+          s: `${time.getFullYear()} ${time.getMonth() + 1} ${time.getDate()} 周 ${time.getDay() + 1} `
+      })
+  }
+  arr.forEach((item, i) => {
+    let index = i + 1
+    item.value = index
+    item.name = '第' + index + '周'
+  })
+  console.log(arr)
+  return arr
+}
+/**
+ * 当然，一年中第一周的周一那天不一定是在这1月1日，可能包函上一年的12月最后几天
+ * 默认第一周为可能包括上一年12月最后几天
+*/
+function handleDay (yearBegin, aDay) {
+    let time, 
+      day = yearBegin.getDay()
+    switch(day){
+        case 0:
+            time = 0;
+            break;
+        case 1: 
+            time = 1 * aDay;
+            break;
+        case 2: 
+            time = 2 * aDay;
+            break;
+        case 3: 
+            time = 3 * aDay;
+            break;
+        case 4: 
+            time = 4 * aDay;
+            break;
+        case 5: 
+            time = 5 * aDay;
+            break;
+        case 6: 
+            time = 6 * aDay;
+            break;
+        default: 
+            time = 0;
+            break;
+    }
+    return yearBegin.getTime() - time
+}
+mapWeeksOfyear()
+  </script>
+</body>
+</html>
