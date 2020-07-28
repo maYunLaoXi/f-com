@@ -8,13 +8,35 @@
 <body>
   <div class="doc">
     <a href="http://momentjs.cn/">moment.js文档</a>
+    <br />
+    <a href="https://www.bootcdn.cn/lodash.js/">lodash-cdn</a>&nbsp;&nbsp;<a href="http://lodash.think2011.net/">documenation</a>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.19/lodash.js"></script>
   <script>
     const aDay = 24 * 60 * 60 * 1000
     const aWeek = aDay * 7
     let startTime = new Date('2020' + '-01-01 00:00:00')
+    var users = {
+      bb: {bb: 'bb'},
+      data: {
+        cc: {
+          data: [],
+          page: 1, 
+          totalSize: 100,
+          pageSize: 10
+        },
+      },
+      a: 'aaa'
+    };
     
+    let aa
+    _.findLastKey(users, function(o) {
+      let keys = Object.keys(o)
+      console.log(o)
+      if(keys.includes('page') && keys.includes('totalSize'))aa = o
+      return keys.includes('page') && keys.includes('totalSize')
+    })
   </script>
 </body>
 </html>
