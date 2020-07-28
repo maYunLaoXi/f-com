@@ -78,7 +78,76 @@ function handleDay (yearBegin, aDay) {
     }
     return yearBegin.getTime() - time
 }
-mapWeeksOfyear()
+// mapWeeksOfyear()
+
+/**
+ * 
+ */
+let obj = {
+  seat3DInfoList: [
+    {
+        "isExistGoods": 1, // 是否有货物，3D数组的第二个参数
+        "seatCd": 'aaaa', // 库位编码,3D数组的第一个参数
+        "seatColInShelf": 1,
+        "seatLayerInShelf": 1,
+        "seatNo": 111,
+        "seatStatus": '01'
+    },
+    {
+        "isExistGoods": 1,
+        "seatCd": "bbbb",
+        "seatColInShelf": 3,
+        "seatLayerInShelf": 3,
+        "seatNo": 33333,
+        "seatStatus": '02'
+    },
+  ],
+  "seatRegion": '2222',
+  "shelfCode": 23333,
+  "shelfColNum": 3, // 列数
+  "shelfLayerNum": 4, // 层数
+  "storeCode": 4444,
+  seatProp: 2
+}
+let storage = []
+for(let i = 0; i < 29; i++) {
+  storage.push({
+    ...obj
+  })
+}
+
+function setSelf(obj) {
+  const { shelfColNum = 1, shelfLayerNum = 1, seat3DInfoList } = obj;
+  const emptyShelf = newDimensionsArr(shelfColNum, shelfLayerNum)
+  seat3DInfoList.forEach(item => {
+    const { seatColInShelf, seatLayerInShelf , isExistGoods, seatCd } = item
+    emptyShelf[seatColInShelf - 1][seatLayerInShelf - 1][0] = seatCd
+    emptyShelf[seatColInShelf - 1][seatLayerInShelf - 1][1] = Number(isExistGoods)
+  })
+}
+function setDoor(obj) {
+  const { seatCd, isExistGoods } = obj.seat3DInfoList[0]
+  return [
+    [seatCd, isExistGoods]
+  ]
+}
+/**
+ * 生成多维数组
+ * col 列（竖）
+ * row 纵（横）
+ */
+function newDimensionsArr(col, row) {
+  const resArr = [];
+  for(let i = 0; i < col; i++) {
+    const colNum = []
+    for(let j = 0; j < row; j++) {
+      colNum.push([])
+    }
+    resArr.push(colNum)
+  }
+  return resArr
+}
+ 
   </script>
 </body>
 </html>
