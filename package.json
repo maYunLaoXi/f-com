@@ -1,0 +1,23 @@
+{
+  "name": "f-com",
+  "version": "1.0.0",
+  "description": "下载文件到地本地，软链接至项目根目录中",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maYunLaoXi/f-com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maYunLaoXi/f-com/issues"
+  },
+  "homepage": "https://github.com/maYunLaoXi/f-com#readme",
+  "dependencies": {
+    "eslint": "^7.7.0"
+  }
+}
