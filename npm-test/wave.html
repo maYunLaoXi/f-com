@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css波浪</title>
+  <style>
+    .wave {
+      position: relative;
+      align-items: center;
+      height: 300px;
+      margin-top: 200px;
+      background-color: #ec6461;
+      overflow: hidden;
+      display: flex;
+    }
+    .before,
+    .after {
+        position: absolute;
+        left: 50%;
+        min-width: 320vw;
+        min-height: 320vw;
+        background-color: #fff;
+        animation-name: rotate;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    .before {
+      bottom: 32vh;
+      border-radius: 38%;
+      animation-duration: 10s;
+    }
+
+    .after {
+        bottom: 28vh;
+        opacity: 0.5;
+        border-radius: 44%;
+        animation-duration: 10s;
+    }
+    .text{
+      margin: auto;
+    }
+    @keyframes rotate {
+      0% {
+          transform: translate(-50%, 0) rotateZ(0deg);
+      }
+      50% {
+          transform: translate(-50%, -2%) rotateZ(180deg);
+      }
+      100% {
+          transform: translate(-50%, 0%) rotateZ(360deg);
+      }
+    }
+
+    h2 {
+        position: relative;
+        color: #333;
+        z-index: 10;
+        text-align: center;
+        height: 100vh;
+        line-height: 140vh;
+        font-size: 8vw;
+        text-shadow: 3px 3px 2px #999;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wave">
+    <div class="before"></div>
+    <div class="after"></div>
+    <div class="text">1/9</div>
+  </div>
+</body>
+</html>

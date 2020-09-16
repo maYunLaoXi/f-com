@@ -16,6 +16,7 @@ export function param2Obj(url) {
  * @returns {Object}
  */
 export function body2Obj(body) {
+  if(!body) return '{}'
   return JSON.parse(
     '{"' +
       decodeURIComponent(body)
@@ -25,4 +26,15 @@ export function body2Obj(body) {
         .replace(/\+/g, ' ') +
     '"}'
   )
+}
+/**
+ * 查找文件后缀名
+ * @param {*} src 文件名
+ * @param {*} def 默认值
+ */
+export const fileLastName = (src, def = '') => {
+  if(!src) return def
+  const name = src.match(/\.[^.]+?$/)
+  if(!name) return def
+  return name[0]
 }
