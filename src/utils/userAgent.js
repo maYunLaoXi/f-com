@@ -15,6 +15,4 @@ export const isXiaoMi = lowerUa.indexOf('mi ') !== -1;
 // 红米手机
 export const isHongMi = lowerUa.indexOf('redmi') !== -1;
 // 小程序 web-view
-export const isMiniProgram = () =>
-  // eslint-disable-next-line no-underscore-dangle
-  window.__wxjs_environment === 'miniprogram';
+export const isMiniProgram = () => window.__wxjs_environment === 'miniprogram';
