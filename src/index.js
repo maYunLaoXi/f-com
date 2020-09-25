@@ -1,1 +1,2 @@
-export * from './utils/index'
+import * as all from './utils/index'
+export default all
