@@ -15,12 +15,12 @@ const config = {
   },
   plugins: [
     resolve(),
+    commonjs({
+      include: 'node_modules/**'
+    }),
     babel({
       exclude: 'node_modules/**' // 只编译我们的源代码
     }),
-    commonjs({
-      include: 'node_modules/**'
-    })
   ]
 }
 

@@ -1,0 +1,9 @@
+node_modules
+.history
+.npmignore
+.gitignore
+.babelrc
+rollup.config.js
+webpack.config.js
+yarn.lock
+npm-test

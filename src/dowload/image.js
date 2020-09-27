@@ -1,8 +1,22 @@
 import { imgSrc2base64 } from '../utils'
-import JsZip, { file } from 'jszip'
-import { saveAs } from 'file-saver'
+import JsZip from 'jszip'
+import saveAs from 'file-saver'
 
-const dowloadImage = async ({ src, zip = false, zipAnothers }) => {
+async function dowloadZip(src, zipAnothers) {
+  const srcs = typeof src === 'string' ? [src] : src
+  const zip = new JsZip()
+  for(let item of srcs) {
+    const name = item.match(/[^\/]+?$/)
+    const content = await imgSrc2base64(item)
+    zip.file(name, content.split('base64,')[1], { base64: true })
+  }
+  if(zipAnothers){
+    zip.file(zipAnothers.name, zipAnothers.content)
+  }
+  const res = await zip.generateAsync({ type: 'blob'})
+  saveAs(res, 'yingyingbi.zip')
+}
+export const dowloadImage = async ({ src, zip = false, zipAnothers }) => {
   if(!src) return
   if(!typeof src === 'string' || zip){
     dowloadZip(src, zipAnothers)
@@ -20,18 +34,3 @@ const dowloadImage = async ({ src, zip = false, zipAnothers }) => {
   // 触发 a 的点击事件
   a.dispatchEvent(event);
 }
-async function dowloadZip(src, zipAnothers) {
-  const srcs = typeof src === 'string' ? [src] : src
-  const zip = new JsZip()
-  for(let item of srcs) {
-    const name = item.match(/[^\/]+?$/)
-    const content = await imgSrc2base64(item)
-    zip.file(name, content.split('base64,')[1], { base64: true })
-  }
-  if(zipAnothers){
-    zip.file(zipAnothers.name, zipAnothers.content)
-  }
-  const res = await zip.generateAsync({ type: 'blob'})
-  saveAs(res, 'yingyingbi.zip')
-}
-export default dowloadImage
