@@ -85,17 +85,20 @@ if(isMiniProgram()) { ... }
   let base64 = await fCom.imgSrc2base64('http://img.jpg')
   ```
 
-* dowloadImage({ src, zip = false })： 下载图片资源
+* dowloadImage({ src, zip = false, JsZip })： 下载图片资源
 
   ```javascript
+  // 当使用打包下载时必须传入jszip
+  // npm社区的jszip @3.5.0，由于rollup打包出错，改为外置 see https://github.com/Stuk/jszip#readme
+  import JsZip from 'jszip'
   // 	直接下载
   fCom.dowloadImage({ src: 'http://img.jpg' })
   
-// 打包下载
-  fCom.dowloadImage({ src: 'http://img.jpg', zip: true })
+  // 打包下载
+  fCom.dowloadImage({ src: 'http://img.jpg', zip: true, JsZip })
   
   // 多个src， 打包下载
-  fCom.dowloadImage({ src: ['http://a.jpg', 'http://b.jpg'], zip: true })
+  fCom.dowloadImage({ src: ['http://a.jpg', 'http://b.jpg'], zip: true, JsZip })
   ```
   
   

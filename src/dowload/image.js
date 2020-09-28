@@ -1,8 +1,43 @@
 import { imgSrc2base64 } from '../utils'
-import JsZip from 'jszip'
+// import JsZip from 'jszip'
 import saveAs from 'file-saver'
 
-async function dowloadZip(src, zipAnothers) {
+/**
+ * 下载图片
+ * @param {*} src 图片的src 或多个src组成的数组, 当只有一个src时，其他参数可先
+ * @param {*} zip 是否打包成.zip文件, 如果src是数组，则只能为zip
+ * @param {*} JsZip npm社区的jszip，由于rollup打包出错，改为外置 see https://github.com/Stuk/jszip#readme
+ */
+export const dowloadImage = async ({ src, zip = false, zipAnothers, JsZip }) => {
+  if(!src) return
+  if(!typeof src === 'string' || zip){
+    if(!JsZip) {
+      console.error('the JsZip is missing see https://github.com/maYunLaoXi/f-com#readme')
+      return
+    }
+    dowloadZip(src, JsZip, zipAnothers)
+    return
+  }
+  const base64 = await imgSrc2base64(src)
+  const a = document.createElement('a')
+  const event = new MouseEvent('click')
+
+  a.download = name || 'fcom'
+  a.href = base64
+  // 触发 a 的点击事件
+  a.dispatchEvent(event)
+}
+/**
+ * 打包下载图片
+ * @param {*} src  图片的src 或多个src组成的数组
+ * @param {*} JsZip npm社区的jszip，由于rollup打包出错，改为外置 see https://github.com/Stuk/jszip#readme
+ * @param {*} zipAnothers 可选
+ */
+export async function dowloadZip(src, JsZip, zipAnothers) {
+  if(!JsZip) {
+    console.error('the JsZip is missing see https://github.com/maYunLaoXi/f-com#readme')
+    return
+  }
   const srcs = typeof src === 'string' ? [src] : src
   const zip = new JsZip()
   for(let item of srcs) {
@@ -14,23 +49,5 @@ async function dowloadZip(src, zipAnothers) {
     zip.file(zipAnothers.name, zipAnothers.content)
   }
   const res = await zip.generateAsync({ type: 'blob'})
-  saveAs(res, 'yingyingbi.zip')
-}
-export const dowloadImage = async ({ src, zip = false, zipAnothers }) => {
-  if(!src) return
-  if(!typeof src === 'string' || zip){
-    dowloadZip(src, zipAnothers)
-    return
-  }
-  const base64 = await imgSrc2base64(src)
-  // 生成一个 a 标签
-  const a = document.createElement('a');
-  // 创建一个点击事件
-  const event = new MouseEvent('click');
-  // 将 a 的 download 属性设置为我们想要下载的图片的名称，若 name 不存在则使用'图片'作为默认名称
-  a.download = name || '图片';
-  // 将生成的 URL 设置为 a.href 属性
-  a.href = base64;
-  // 触发 a 的点击事件
-  a.dispatchEvent(event);
+  saveAs.saveAs(res, 'yingyingbi.zip')
 }

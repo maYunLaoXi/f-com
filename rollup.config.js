@@ -9,15 +9,15 @@ const outputDisk = './dist/'
 const config = {
   input: './src/index.js',
   output: {
-    name: 'tks',
+    name: 'fCom',
     file: outputDisk + 'f-com.js',
     format: 'umd'
   },
   plugins: [
-    resolve(),
     commonjs({
       include: 'node_modules/**'
     }),
+    resolve(),
     babel({
       exclude: 'node_modules/**' // 只编译我们的源代码
     }),
