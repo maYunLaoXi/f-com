@@ -19,6 +19,7 @@ const config = {
     }),
     resolve(),
     babel({
+      runtimeHelpers: true,
       exclude: 'node_modules/**' // 只编译我们的源代码
     }),
   ]
