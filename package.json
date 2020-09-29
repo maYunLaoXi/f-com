@@ -1,6 +1,6 @@
 {
   "name": "f-com",
-  "version": "1.0.5",
+  "version": "1.1.5",
   "description": "开发中常用到的工具及组件",
   "main": "dist/f-com.min.js",
   "scripts": {
@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/maYunLaoXi/f-com.git"
   },
-  "keywords": ["utils", "f-com"],
+  "keywords": [
+    "utils",
+    "f-com"
+  ],
   "author": "maYunLaoXi",
   "license": "ISC",
   "bugs": {
@@ -21,16 +24,16 @@
   "dependencies": {
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.11.5",
     "@babel/core": "^7.11.6",
+    "@babel/plugin-external-helpers": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "eslint": "^7.7.0",
     "file-saver": "^2.0.2",
-    "jszip": "^3.5.0",
-    "lodash": "^4.17.20",
-    "rollup-plugin-commonjs": "^10.1.0",
     "path": "^0.12.7",
     "rollup": "^2.28.2",
     "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
     "webpack": "^4.44.2",

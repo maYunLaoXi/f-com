@@ -1,5 +1,8 @@
 import { fileLastName } from './string'
-
+/**
+ * 将图片转为base64格式
+ * @param {string} src 图片src
+ */
 export const imgSrc2base64 = src => {
   let lastName = fileLastName(src, 'png')
   if(!lastName.match('png'))lastName = 'jpeg'
