@@ -8,6 +8,6 @@ test('2020-10-01 12:12:12 to 2020年10月1日', () => {
 test('readableTime 1秒前', () => {
   expect(readableTime('2020-09-22')).toBe('8天前')
 })
-test('gitBaseInfo', () => {
-  expect(gitBaseInfo().auther).toBe('yunHui')
+test('gitBaseInfo',  () => {
+  expect(gitBaseInfo.auther).toBe('yunHui')
 })
