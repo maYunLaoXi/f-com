@@ -22,8 +22,9 @@ export const format = (timeStr, forMat) => {
   const h = time.getHours()
   const min = time.getMinutes()
   const s = time.getSeconds()
-  let result = `${y}年${m}月${d}`
-  if(!forMat) result;
+  let result = `${y}年${m}月${d}日`
+  if(!forMat) return result;
+  else return `${y}年${m}月${d}日 ${h}:${min}:${s}`
 }
 /**
  * 格式化为可读时间
