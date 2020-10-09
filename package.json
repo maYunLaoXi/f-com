@@ -5,7 +5,8 @@
   "main": "dist/f-com.min.js",
   "scripts": {
     "test": "jest",
-    "build": "npx rollup -c"
+    "build": "npx rollup -c",
+    "dev": "npx webpack-dev-server --inline --progress"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
+    "html-webpack-plugin": "^4.5.0",
     "webpack": "^4.44.2",
     "webpack-merge": "^5.1.4"
   }
