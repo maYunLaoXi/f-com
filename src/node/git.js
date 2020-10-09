@@ -19,7 +19,8 @@ const gitBaseInfo = () => {
   const time = getInfo(gitShow + '%cd')
   const commit = getInfo(gitShow + '%s')
   const hash = getInfo(gitShow + '%h')
-  return { branch, auther, email, time, commit, hash }
+  const packTime = new Date()
+  return { branch, auther, email, time, commit, hash, packTime }
 
 }
 function getInfo(command) {
