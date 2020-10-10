@@ -1,4 +1,4 @@
-const { format, readableTime } = require('../dist/f-com.js')
+import { format, readableTime, mosaicEmail } from'../src/index.js'
 const { gitBaseInfo } = require('../src/node/git')
 
 test('2020-10-01 12:12:12 to 2020年10月1日', () => {
@@ -6,10 +6,14 @@ test('2020-10-01 12:12:12 to 2020年10月1日', () => {
 })
 
 test('readableTime 1秒前', () => {
-  expect(readableTime('2020-09-22')).toBe('17天前')
+  expect(readableTime('2020-09-22')).toBe('18天前')
 })
 test('gitBaseInfo',  () => {
   let info = gitBaseInfo()
   expect(info.auther).toBe('liangyh')
-  expect(info.packTime).toBe('2020')
+  expect(info.branch).toBe('master')
+})
+
+test('mosaic email address', () => {
+  expect(mosaicEmail('lii@outlook.com', true, true)).toBe('lii@ou****k.com')
 })

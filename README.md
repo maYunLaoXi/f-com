@@ -65,7 +65,13 @@ if(isMiniProgram()) { ... }
   ```
   fCom.fileLastName('iiiimage.jpg') // .jpg
   ```
-
+* mosaicEmail(emailAddress[, mosaicFront, mosaicEnd]): 为邮箱地址打上*号马赛克, 默认'@'前字符替换
+  ```
+  mosaicEmail('fcomtil@outlook.com') // fc****l@outlook.com
+  mosaicEmail('fcomtil@outlook.com', true, true) // fc****l@ou****k.com
+  mosaicEmail('fcomtil@outlook.com', false, true) // fcomtill@ou****k.com
+  mosaicEmail('fcomtil@outlook.com', false, false) // fcomtil@outlook.com
+  ```
 ## Time时间
 
 * readableTime(time): 格式化为可读时间(xx秒前， XX分钟、小时、天、个月、年前)
@@ -101,5 +107,7 @@ if(isMiniProgram()) { ... }
   fCom.dowloadImage({ src: ['http://a.jpg', 'http://b.jpg'], zip: true, JsZip })
   ```
   
+  ## Object
+  * logGitInfo(infoObj[, color1 = '#1475b2', color2 = '#42c02e']): 带样式打印对象key value于浏览器端
   
 
