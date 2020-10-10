@@ -36,7 +36,7 @@ arrayRemoveRepeat([{id: 1}], 'id') // 跟椐id值去重
 * isIos
 * isMinProgram
 
-```java
+```javascript
 import { isMobile, isWeiXin, isIos, isXiaoMi, isMiniProgram } from 'f-com'
 
 // 是否为移动端
@@ -106,8 +106,8 @@ if(isMiniProgram()) { ... }
   // 多个src， 打包下载
   fCom.dowloadImage({ src: ['http://a.jpg', 'http://b.jpg'], zip: true, JsZip })
   ```
-  
-  ## Object
+
+## Object
   * logGitInfo(infoObj[, color1 = '#1475b2', color2 = '#42c02e']): 带样式打印对象key value于浏览器端
   
 
