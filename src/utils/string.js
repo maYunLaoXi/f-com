@@ -47,20 +47,22 @@ export const fileLastName = (src, def = '') => {
 export const mosaicEmail = (address, front = true, end = false) => {
   if(!address || !address.includes('@')) return ''
   const frontReg = /\w*(?=@)/,
-    endReg = /(?<=@)\w*/;
+    endReg = /@(.+?)\./;
+    // /(?<=@)\w*/ // safari不适用
+    // /@([\s\S]*?)\./ // 可用
+    
   let emailFront = address.match(frontReg)[0],
-  emailEnd = address.match(endReg)[0];
-  
+  emailEnd = address.match(endReg)[1];
   if(front) {
     let replaceStr = emailFront.slice(2, -1)
     emailFront = emailFront.replace(replaceStr, createLangthString(replaceStr))
   }
   if(end) {
-    let replaceStr = emailEnd.slice(2, -1)
+    let replaceStr = emailEnd.slice(2, -2)
     emailEnd = emailEnd.replace(replaceStr, createLangthString(replaceStr))
   }
 
-  return address.replace(frontReg, emailFront).replace(endReg, emailEnd)
+  return address.replace(frontReg, emailFront).replace(endReg, `@${emailEnd}.`)
 }
 
 function createLangthString(langth, random) {
