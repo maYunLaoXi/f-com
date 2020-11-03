@@ -2,7 +2,7 @@
 import fCom, { isMobile, mosaicEmail } from './index'
 import moment from 'moment'
 
-console.log('f-com begin', fCom)
+console.log('f-com: ', fCom)
 console.log(isMobile, mosaicEmail('liangyh@spinsoft.com', true, true))
 
 window.moment = moment

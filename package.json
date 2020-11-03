@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest --config test/jest.config.json",
     "build": "NODE_ENV=production npx rollup -c",
-    "dev": "npx webpack-dev-server --inline --progress"
+    "dev": "webpack-dev-server --inline --progress"
   },
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
     "webpack": "^4.44.2",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.1.4"
   }
 }

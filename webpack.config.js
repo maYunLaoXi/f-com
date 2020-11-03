@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
@@ -23,6 +24,7 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.html',
       inject: true,
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
