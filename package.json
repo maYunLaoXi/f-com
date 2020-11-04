@@ -41,6 +41,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-uglify": "^6.0.4",
     "webpack": "^4.44.2",
+    "webpack-cli": "3",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.1.4"
   }
