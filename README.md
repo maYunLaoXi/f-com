@@ -37,17 +37,19 @@ arrayRemoveRepeat([{id: 1}], 'id') // 跟椐id值去重
 * isMinProgram
 
 ```javascript
-import { isMobile, isWeiXin, isIos, isXiaoMi, isMiniProgram } from 'f-com'
+import { isMobile, isWeiXin, isIos, isAndroid, isXiaoMi, isMiniProgram isIE, isIE9, isEdge, isChrome, isFF } from 'f-com'
+
+// 只有isMiniProgram 是一个函数
+// 是否为微信小程序
+if(isMiniProgram()) { ... }
 
 // 是否为移动端
 if(isMobile) { ... }
 
 // 微信浏览器
 if(isWeiXin) { ... }
-
-// 只有isMiniProgram 是一个函数
-// 是否为微信小程序
-if(isMiniProgram()) { ... }
+// firefox
+if(isFF) { ... }
 ```
 
 ## String
@@ -106,6 +108,9 @@ if(isMiniProgram()) { ... }
   // 多个src， 打包下载
   fCom.dowloadImage({ src: ['http://a.jpg', 'http://b.jpg'], zip: true, JsZip })
   ```
+
+## Number
+  * keep2Decimals(num, [mathod]): 保留两位小数默认用Math.floor方法，可转入mathod
 
 ## Object
   * logGitInfo(infoObj[, color1 = '#1475b2', color2 = '#42c02e']): 带样式打印对象key value于浏览器端

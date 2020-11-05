@@ -18,5 +18,5 @@ test('gitBaseInfo',  () => {
 })
 
 test('mosaic email address', () => {
-  expect(mosaicEmail('lii@outlook.com', true, true)).toBe('lii@ou****k.com')
+  expect(mosaicEmail('lii@outlook.com', true, true)).toBe('lii@ou***ok.com')
 })
