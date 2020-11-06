@@ -10,7 +10,7 @@ import saveAs from 'file-saver'
  */
 export const dowloadImage = async ({ src, zip = false, zipAnothers, JsZip }) => {
   if(!src) return
-  if(!typeof src === 'string' || zip){
+  if(!(typeof src === 'string') || zip){
     if(!JsZip) {
       console.error('the JsZip is missing see https://github.com/maYunLaoXi/f-com#readme')
       return
@@ -19,7 +19,7 @@ export const dowloadImage = async ({ src, zip = false, zipAnothers, JsZip }) => 
     return
   }
   const base64 = await imgSrc2base64(src)
-  const a = document.createElement('a')
+  const a: any = document.createElement('a')
   const event = new MouseEvent('click')
 
   a.download = name || 'fcom'

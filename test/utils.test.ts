@@ -1,4 +1,4 @@
-import { format, readableTime, mosaicEmail, isIE, isFF, isChrome } from'../src/index.js'
+import { format, readableTime, mosaicEmail, isIE, isFF, isChrome } from'../src/index'
 const { gitBaseInfo } = require('../src/node/git')
 
 test('userAgent', () => {

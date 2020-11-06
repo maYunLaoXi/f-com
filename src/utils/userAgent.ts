@@ -19,7 +19,7 @@ export const isXiaoMi = lowerUa.indexOf('mi ') !== -1;
 // 红米手机
 export const isHongMi = lowerUa.indexOf('redmi') !== -1;
 // 小程序 web-view
-export const isMiniProgram = () => window.__wxjs_environment === 'miniprogram';
+export const isMiniProgram = (): boolean => window['__wxjs_environment'] === 'miniprogram';
 
 export const isIE = lowerUa && /msie|trident/.test(lowerUa)
 export const isIE9 = lowerUa.indexOf('msie 9.0') > 0

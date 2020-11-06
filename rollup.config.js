@@ -3,11 +3,12 @@ import { uglify } from 'rollup-plugin-uglify'
 import babel from 'rollup-plugin-babel'
 import merge from 'webpack-merge'
 import commonjs from 'rollup-plugin-commonjs'
+import typescript from 'rollup-plugin-typescript2'
 
 const outputDisk = './dist/'
 
 const config = {
-  input: './src/index.js',
+  input: './src/index.ts',
   output: {
     name: 'fCom',
     file: outputDisk + 'f-com.js',
@@ -22,6 +23,7 @@ const config = {
       runtimeHelpers: true,
       exclude: 'node_modules/**' // 只编译我们的源代码
     }),
+    typescript()
   ]
 }
 

@@ -4,7 +4,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/pack.js',
+  entry: './src/pack.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'f-com.js',
@@ -19,6 +19,22 @@ module.exports = {
     open: true,
   },
   devtool: 'cheap-module-eval-source-map',
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  module: {
+    rules: [
+      // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
+      { 
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        options: {
+          configFile: path.resolve(__dirname, 'types/tsconfig.json')
+　　　　　}
+      }
+    ]
+  },
   plugins: [
     new htmlWebpackPlugin({
       filename: 'index.html',

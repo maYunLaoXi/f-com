@@ -1,0 +1,1 @@
+export function keep2Decimals(): number | string

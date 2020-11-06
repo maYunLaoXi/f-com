@@ -1,4 +1,4 @@
-module.exports = function(api) {
+module.exports =  function(api) {
   // process.env.NODE_ENV
   console.log('env', process.env.NODE_ENV)
   const isTest = api.env('test')

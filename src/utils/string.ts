@@ -65,7 +65,7 @@ export const mosaicEmail = (address, front = true, end = false) => {
   return address.replace(frontReg, emailFront).replace(endReg, `@${emailEnd}.`)
 }
 
-function createLangthString(langth, random) {
+function createLangthString(langth) {
   let times = langth
   if(typeof langth === 'string') times = langth.length;
   let string = ''

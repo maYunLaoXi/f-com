@@ -4,15 +4,15 @@
  * @param {*} mathod Math的方法
  * @returns {Number}
  */
-export const keep2Decimals = (numOrStr, mathod = 'floor') => {
-  let m = mathod
-  if(!Math[m]) {
+export const keep2Decimals = (numOrStr: number | string, mathod: string = 'floor'): number | string => {
+  let m;
+  if(!Math[mathod]) {
     console.warn(`keep2Decimals: ${mathod} is not a Math's mathod , f-com used floor instead`)
     m = Math.floor
   } else {
-    m = Math[m]
+    m = Math[mathod]
   }
-  let num = numOrStr
+  let num: number | string = numOrStr
 
   if(typeof num === 'string') {
     num = Number(numOrStr)
