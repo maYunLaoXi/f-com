@@ -1,6 +1,8 @@
 # 开发常用到的工具集合
 
+使用typescritp篇写，jest测试，rullup构建。加入了webpack也可以写点简单测试
 
+## usage
 ```
 npm install f-com
 ```
@@ -8,7 +10,6 @@ or
 ```
 yarn add f-com
 ```
-## usage
 ```
 import fCom from 'f-com
 
@@ -20,7 +21,7 @@ if(fCom.isMobile) { ... }
 import { isMobile } from 'f-com'
 ```
 
-## 数组
+## 数组（以下为接口文档）
 ### 去重
 ```
 import { arrayRemoveRepeat, ... } from 'f-com'
@@ -110,7 +111,7 @@ if(isFF) { ... }
   ```
 
 ## Number
-  * keep2Decimals(num, [mathod]): 保留两位小数默认用Math.floor方法，可转入mathod
+  * keep2Decimals(num, [mathod]): 保留两位小数默认用Math.floor方法，可转入mathod（Math的方法名）
 
 ## Object
   * logGitInfo(infoObj[, color1 = '#1475b2', color2 = '#42c02e']): 带样式打印对象key value于浏览器端
