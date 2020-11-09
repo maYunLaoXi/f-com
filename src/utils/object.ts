@@ -9,7 +9,7 @@ export const logGitInfo = (infoObj: object, color1: string = '#1475b2', color2: 
   const { log } = window.console
   for(let [key,value] of Object.entries(infoObj)) {
     const color = randonFromList([color1, color2])
-    let a = [`%c ${key} %c ${value} `,"padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060;", "padding: 1px; border-radius: 0 3px 3px 0; color: #fff; background: ".concat(color, ";")]
+    let a = [`%c ${key} %c ${value} `,'padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060;',`padding: 1px; border-radius: 0 3px 3px 0; color: #fff; background: ${color};`]
     log(...a)
   }
 }
