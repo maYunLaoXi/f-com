@@ -14,7 +14,7 @@ const now = new Date()
  * @param {String} timeStr 接口返回的时间 
  * @param {*} forMat 规则
  */
-export const format = (timeStr, forMat) => {
+export const format = (timeStr: Date | string, forMat?: string) => {
   const time = new Date(timeStr)
   const y = time.getFullYear()
   const m = time.getMonth() + 1
@@ -39,7 +39,7 @@ export const format = (timeStr, forMat) => {
  * @param time
  * @returns {string}
  */
-export const readableTime = time => {
+export const readableTime = (time: Date | string): string => {
   if (!time) return '';
 
   // ios 兼容

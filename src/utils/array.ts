@@ -30,7 +30,7 @@ export const arrayRemoveRepeat = (arr, key) => {
  * @param {*} list 为数组时其各个元素参与随机
  * @param  {...any} args 
  */
-export const randonFromList = (list,...args) => {
+export const randonFromList = (list: Array<any>,...args):any => {
   let array = Array.isArray(list) ? list : [list]
   array = array.concat(args)
   const { floor, random } = Math

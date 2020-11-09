@@ -16,7 +16,8 @@ module.exports = {
     contentBase: false,
     hot: true,
     port: 8060,
-    open: true,
+    open: false,
+    quiet: false
   },
   devtool: 'cheap-module-eval-source-map',
   resolve: {

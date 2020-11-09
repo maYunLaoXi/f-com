@@ -3,7 +3,7 @@
  * @param {string} url
  * @returns {Object}
  */
-export function param2Obj(url) {
+export function param2Obj(url: string): object {
   const search = url.split('?')[1]
   if (!search) {
     return {}
@@ -15,8 +15,8 @@ export function param2Obj(url) {
  * @param {string} url
  * @returns {Object}
  */
-export function body2Obj(body) {
-  if(!body) return '{}'
+export function body2Obj(body: string): object {
+  if(!body) return {}
   return JSON.parse(
     '{"' +
       decodeURIComponent(body)
@@ -32,7 +32,7 @@ export function body2Obj(body) {
  * @param {*} src 文件名
  * @param {*} def 默认值
  */
-export const fileLastName = (src, def = '') => {
+export const fileLastName = (src: string, def: string = ''): string => {
   if(!src) return def
   const name = src.match(/\.[^.]+?$/)
   if(!name) return def
@@ -44,7 +44,7 @@ export const fileLastName = (src, def = '') => {
  * @param {Boolean} front '@'前字符替换
  * @param {Boolean} end '@'后字符替换
  */
-export const mosaicEmail = (address, front = true, end = false) => {
+export const mosaicEmail = (address: string, front: boolean = true, end: boolean = false) => {
   if(!address || !address.includes('@')) return ''
   const frontReg = /\w*(?=@)/,
     endReg = /@(.+?)\./;
