@@ -5,7 +5,7 @@ test('userAgent', () => {
   expect(isChrome || isFF || isIE).toBe(false)
 })
 test('2020-10-01 12:12:12 to 2020年10月1日', () => {
-  expect(format('2020-10-01 12:12:12',1)).toBe('2020年10月1日 12:12:12')
+  expect(format('2020-10-01 12:12:12', '1')).toBe('2020年10月1日 12:12:12')
 })
 
 test('readableTime 1秒前', () => {
@@ -13,7 +13,7 @@ test('readableTime 1秒前', () => {
 })
 test('gitBaseInfo',  () => {
   let info = gitBaseInfo()
-  expect(info.auther).toBe('liangyh')
+  expect(info.auther).toBe('maYunLaoXi')
   expect(info.branch).toBe('master')
 })
 
