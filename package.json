@@ -1,6 +1,6 @@
 {
   "name": "f-com",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "开发中常用到的工具及组件",
   "main": "dist/f-com.min.js",
   "module": "dist/f-com.es.js",
