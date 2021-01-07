@@ -11,15 +11,24 @@ const childProcess = require('child_process')
 const gitBaseInfo = () => {
   if(!childProcess) return {}
   const gitShow = 'git show -s --format='
+  let branch, auther, email, time, commit, hash, packTime = new Date()
 
-  const branch = childProcess.execSync('git symbolic-ref --short -q HEAD').toString().replace(/\n/, '')
-  // another command see https://www.systutorials.com/docs/linux/man/1-git-log/#lbAL
-  const auther = getInfo(gitShow + '%cn')
-  const email = getInfo(gitShow + '%ce')
-  const time = getInfo(gitShow + '%cd')
-  const commit = getInfo(gitShow + '%s')
-  const hash = getInfo(gitShow + '%h')
-  const packTime = new Date()
+  try {
+    branch = childProcess.execSync('git symbolic-ref --short -q HEAD').toString().replace(/\n/, '')
+    // another command see https://www.systutorials.com/docs/linux/man/1-git-log/#lbAL
+    auther = getInfo(gitShow + '%cn')
+    email = getInfo(gitShow + '%ce')
+    time = getInfo(gitShow + '%cd')
+    commit = getInfo(gitShow + '%s')
+    hash = getInfo(gitShow + '%h')
+  } catch(err) {
+    branch = 'no git env'
+    auther = ''
+    email = 'see https://github.com/maYunLaoXi/f-com'
+    time = new Date()
+    commit = ''
+    hash = ''
+  }
   return { branch, auther, email, time, commit, hash, packTime }
 
 }
