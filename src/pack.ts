@@ -1,3 +1,5 @@
+// webpack 入口文件
+
 // import fCom, { isMobile} from './f-com-1.1.5'
 import fCom, { 
   logGitInfo, isMobile, isChrome,  mosaicEmail, keep2Decimals, format, readableTime,
@@ -5,6 +7,7 @@ import fCom, {
 } from './index'
 import moment from 'moment'
 import './test/sort'
+import './test/lodash'
 
 const { log } = window.console
 
