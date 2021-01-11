@@ -59,6 +59,16 @@ log(selectionSort(arr))
  * @param arr
  */
 function insertionSort(arr: Array<number>): Array<number> {
+  const { length } = arr
+  let perIndex, current
 
+  for (let i = 1; i < length; i++) {
+    perIndex = i - 1
+    current = arr[i]
+    while (perIndex >= 0 && arr[perIndex] < current) {
+      arr[i] = arr[perIndex]
+      perIndex--
+    }
+  }
   return arr
 }
