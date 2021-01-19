@@ -21,7 +21,7 @@ if(fCom.isMobile) { ... }
 import { isMobile } from 'f-com'
 ```
 
-## 数组（以下为接口文档）
+## 数组（以下为文档）
 ### 去重
 ```
 import { arrayRemoveRepeat, ... } from 'f-com'
