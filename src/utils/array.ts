@@ -1,29 +1,39 @@
 // 数组的方法
 
 /**
- * 对像元素的数组去重
+ * 对像元素的数组去重, 会更改原数组
  * @param { Array } arr 数组，
  * @param { String } key 用于查重的元素属性
  */
 export const arrayRemoveRepeat = (arr, key) => {
   if(!Array.isArray(arr) && !arr.length && !key)return arr
 
-  const keyArr = []
+  const keyArr: Array<number> = []
   const result = {}
   const reSet = {}
 
+  // keyArr的下标对应原数组的下标
   for(let item of arr) {
     keyArr.push(item[key])
   }
-  for(let i = 0, len = keyArr.length; i < len; i++) {
-    if( result[keyArr[i]] && result[keyArr[i]] !== '0') {
+  // result存每个元素，有重复的就存在reSet
+  for(let i = 0; i < keyArr.length; i++) {
+    if( !result[keyArr[i]] && result[keyArr[i]] !== 0) {
       result[keyArr[i]] = i
     }else reSet[keyArr[i]] = i
   }
+  debugger
   for(let removeKey in reSet) {
     arr.splice(reSet[removeKey], 1)
   }
   return arr
+}
+export const removeRepeat = (arr, field) => {
+  let s = {}
+  for(let i=0; i < arr.length; i++){
+      s[arr[i][field]] = arr[i]
+  }
+  return Object.values(s)
 }
 /**
  * 随机获取元素中的一个

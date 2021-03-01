@@ -1,26 +1,28 @@
 /**
  * 将url中的参数转成 key value 对像
  * @param {string} url
+ * @param {boolean} noDecodeURIComponent 是否用decodeURIComponent转换
  * @returns {Object}
  */
-export function param2Obj(url: string): object {
+export function param2Obj(url: string, noDecodeURIComponent: boolean): object {
   const search = url.split('?')[1]
   if (!search) {
     return {}
   }
-  return body2Obj(search)
+  return body2Obj(search, noDecodeURIComponent)
 }
 /**
  * 将a=1&b=2` 转换为 key value 对像
  * @param {string} url
+ * @param {boolean} noDecodeURIComponent 是否用decodeURIComponent转换
  * @returns {Object}
  */
-export function body2Obj(body: string): object {
+export function body2Obj(body: string, noDecodeURIComponent: boolean): object {
   if(!body) return {}
+  let str = noDecodeURIComponent ? body : decodeURIComponent(body)
   return JSON.parse(
     '{"' +
-      decodeURIComponent(body)
-        .replace(/"/g, '\\"')
+      str.replace(/"/g, '\\"')
         .replace(/&/g, '","')
         .replace(/=/g, '":"')
         .replace(/\+/g, ' ') +
