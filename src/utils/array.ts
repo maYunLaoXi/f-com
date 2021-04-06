@@ -22,7 +22,6 @@ export const arrayRemoveRepeat = (arr, key) => {
       result[keyArr[i]] = i
     }else reSet[keyArr[i]] = i
   }
-  debugger
   for(let removeKey in reSet) {
     arr.splice(reSet[removeKey], 1)
   }
