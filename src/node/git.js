@@ -1,6 +1,10 @@
 const childProcess = require('child_process')
+const { mosaicEmail } = require('../utils/string')
+console.log({ mosaicEmail })
 /**
  * 获取git的基本信息，依赖nodejs
+ * @param {Boolean} mEmail 是否打码邮箱
+ * @param {Boolean} mUrl 是否去掉commit中的url
  * @returns {Object}
  * branch 分支名
  * auther 作者
@@ -8,7 +12,7 @@ const childProcess = require('child_process')
  * commit 最后一次提交信息
  * hash 最后一次提交hash
  */
-const gitBaseInfo = () => {
+const gitBaseInfo = (mEmail = false, mUrl) => {
   if(!childProcess) return {}
   const gitShow = 'git show -s --format='
   let branch, auther, email, time, commit, hash, packTime = new Date()
@@ -29,6 +33,8 @@ const gitBaseInfo = () => {
     commit = ''
     hash = ''
   }
+  if (mEmail) email = mosaicEmail(email)
+  if (mUrl) commit = commit.replace(/https?:\/\/[^\s\/]+/, 'http**')
   return { branch, auther, email, time, commit, hash, packTime }
 
 }

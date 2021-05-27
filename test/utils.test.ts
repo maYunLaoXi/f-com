@@ -12,9 +12,10 @@ test('readableTime 1秒前', () => {
   expect(readableTime('2020-09-22')).toBe('1个月前')
 })
 test('gitBaseInfo',  () => {
-  let info = gitBaseInfo()
+  let info = gitBaseInfo(true)
   expect(info.auther).toBe('maYunLaoXi')
   expect(info.branch).toBe('master')
+  expect(info.email).toBe('abc')
 })
 
 test('mosaic email address', () => {
