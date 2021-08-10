@@ -6,5 +6,5 @@
     "strict": true,
     "esModuleInterop": true
   },
-  "exclude": ["node_modules", "dist", "src/test", "src/pack.ts"]
+  "exclude": ["node_modules", "dist", "src/test", "test", "src/pack.ts"]
 }
