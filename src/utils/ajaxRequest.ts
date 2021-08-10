@@ -5,7 +5,7 @@ type urlType = { url?: Array<string> | string, env?: string, list?: Array<string
  * @param {string} env 环境名（mock, test, gray, development等
  * @param {Array} list 所有环境
  */
-export const getUrl = ({ url, env, list = [ 'mock', 'development', 'test', 'gray', 'production'] }: urlType = {}) => {
+export const getUrl = ({ url, env = '', list = [ 'mock', 'development', 'test', 'gray', 'production'] }: urlType = {}) => {
   if(!url)return '';
   let resaultUrl = ''
   if(Array.isArray(url)){

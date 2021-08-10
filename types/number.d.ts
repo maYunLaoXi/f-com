@@ -1,1 +1,0 @@
-declare function keep2Decimals(num: string | number,  mathod?: string): number | string

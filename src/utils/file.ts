@@ -15,7 +15,7 @@ export const imgSrc2base64: (val: string) => Promise<string> =  src => {
       canvas.width = image.width;
       canvas.height = image.height;
       const context = canvas.getContext('2d');
-      context.drawImage(image,0,0,image.width,image.height);
+      (context as CanvasRenderingContext2D).drawImage(image,0,0,image.width,image.height);
       const base64 = canvas.toDataURL('image/' + lastName, 1);
       resolve(base64)
     }

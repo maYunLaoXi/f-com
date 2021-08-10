@@ -1,6 +1,11 @@
 // 客户端信息
-
-let inBrowser, isMobile, isWeiXin, isIos, isAndroid, isXiaoMi, isHongMi, isIE,  isMiniProgram, isIE9, isEdge, isChrome, isFF;
+declare global {
+  interface Window {
+    __wxjs_environment: string
+  }
+}
+let inBrowser = false,
+  isMobile = false, isWeiXin = false, isIos = false, isAndroid = false, isXiaoMi = false, isHongMi = false, isIE = false, isMiniProgram = false, isIE9 = false, isEdge = false, isChrome = false, isFF = false;
 if(typeof window === 'undefined') {
   inBrowser = false
 } else {
@@ -21,7 +26,7 @@ if(typeof window === 'undefined') {
   // 红米手机
   isHongMi = lowerUa.indexOf('redmi') !== -1;
   // 小程序 web-view
-  isMiniProgram = () => window['__wxjs_environment'] === 'miniprogram';
+  isMiniProgram = () => window.__wxjs_environment === 'miniprogram';
   
   isIE = lowerUa && /msie|trident/.test(lowerUa)
   isIE9 = lowerUa.indexOf('msie 9.0') > 0

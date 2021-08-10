@@ -4,7 +4,7 @@ import { format } from './time'
 const maxCount: number = 10
 const logs: Array<any> = []
 let reportedCount: number = 0
-let interval
+let interval: number
 
 
 /**
@@ -56,7 +56,7 @@ export const startReport = (api: any):void => {
   }
   doReportError(api)
   // 10秒一次
-  interval = setInterval(function() {
+  interval = window.setInterval(function() {
     doReportError(api)
   }, 10000)
 }

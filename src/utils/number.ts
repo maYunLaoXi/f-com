@@ -4,7 +4,7 @@
  * @param {*} mathod Math的方法
  * @returns {Number}
  */
-export const keep2Decimals = (numOrStr: number | string, mathod: string = 'floor'): number | string => {
+export const keep2Decimals = (numOrStr: number | string, mathod: 'floor' | 'round' = 'floor'): number | string => {
   let m;
   if(!Math[mathod]) {
     console.warn(`keep2Decimals: ${mathod} is not a Math's mathod , f-com used floor instead`)

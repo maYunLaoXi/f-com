@@ -53,8 +53,8 @@ export const mosaicEmail = (address: string, front: boolean = true, end: boolean
     // /(?<=@)\w*/ // safari不适用
     // /@([\s\S]*?)\./ // 可用
     
-  let emailFront = address.match(frontReg)[0],
-  emailEnd = address.match(endReg)[1];
+  let emailFront = address.match(frontReg)![0],
+  emailEnd = address.match(endReg)![1];
   if(front) {
     let replaceStr = emailFront.slice(2, -1)
     emailFront = emailFront.replace(replaceStr, createLangthString(replaceStr))
@@ -67,7 +67,7 @@ export const mosaicEmail = (address: string, front: boolean = true, end: boolean
   return address.replace(frontReg, emailFront).replace(endReg, `@${emailEnd}.`)
 }
 
-function createLangthString(langth) {
+function createLangthString(langth: number | string) {
   let times = langth
   if(typeof langth === 'string') times = langth.length;
   let string = ''
