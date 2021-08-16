@@ -4,6 +4,7 @@ import babel from 'rollup-plugin-babel'
 import merge from 'webpack-merge'
 import commonjs from 'rollup-plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
+import dts from 'rollup-plugin-dts'
 
 const outputDisk = './dist/'
 
@@ -55,4 +56,9 @@ const result = []
 for(let item of packages) {
   result.push(merge(config, item))
 }
+result.push({
+  input: 'dist/index.d.ts',
+  output: [{ file: 'dist/types.d.ts', format: 'es' }],
+  plugins: [dts()]
+})
 export default result

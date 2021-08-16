@@ -4,8 +4,12 @@ declare global {
     __wxjs_environment: string
   }
 }
+type BoFn = () => boolean
+
 let inBrowser = false,
-  isMobile = false, isWeiXin = false, isIos = false, isAndroid = false, isXiaoMi = false, isHongMi = false, isIE = false, isMiniProgram = false, isIE9 = false, isEdge = false, isChrome = false, isFF = false;
+  isMobile = false, isWeiXin = false, isIos = false, isAndroid = false, isXiaoMi = false, isHongMi = false, isIE = false, isIE9 = false, isEdge = false, isChrome = false, isFF = false;
+let isMiniProgram: boolean | BoFn
+
 if(typeof window === 'undefined') {
   inBrowser = false
 } else {
@@ -28,7 +32,7 @@ if(typeof window === 'undefined') {
   // 小程序 web-view
   isMiniProgram = () => window.__wxjs_environment === 'miniprogram';
   
-  isIE = lowerUa && /msie|trident/.test(lowerUa)
+  isIE = /msie|trident/.test(lowerUa)
   isIE9 = lowerUa.indexOf('msie 9.0') > 0
   isEdge = lowerUa.indexOf('edge/') > 0
   isChrome = /chrome\/\d+/.test(lowerUa) && !isEdge
