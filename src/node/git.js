@@ -15,7 +15,7 @@ console.log({ mosaicEmail })
 const gitBaseInfo = (mEmail = false, mUrl) => {
   if(!childProcess) return {}
   const gitShow = 'git show -s --format='
-  let branch, auther, email, time, commit, hash, packTime = new Date()
+  let branch, auther, email, time, commit, hash, packTime = new Date().toLocaleString()
 
   try {
     branch = childProcess.execSync('git symbolic-ref --short -q HEAD').toString().replace(/\n/, '')
@@ -29,7 +29,7 @@ const gitBaseInfo = (mEmail = false, mUrl) => {
     branch = 'no git env'
     auther = ''
     email = 'see https://github.com/maYunLaoXi/f-com'
-    time = new Date()
+    time = new Date().toLocaleString()
     commit = ''
     hash = ''
   }
