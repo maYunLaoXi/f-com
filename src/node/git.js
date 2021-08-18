@@ -1,5 +1,5 @@
 const childProcess = require('child_process')
-const { mosaicEmail } = require('../utils/string')
+const { mosaicEmail } = require('../../dist/f-com.cjs')
 console.log({ mosaicEmail })
 /**
  * 获取git的基本信息，依赖nodejs
@@ -22,7 +22,7 @@ const gitBaseInfo = (mEmail = false, mUrl) => {
     // another command see https://www.systutorials.com/docs/linux/man/1-git-log/#lbAL
     auther = getInfo(gitShow + '%cn')
     email = getInfo(gitShow + '%ce')
-    time = getInfo(gitShow + '%cd')
+    time = new Date(getInfo(gitShow + '%cd')).toLocaleString()
     commit = getInfo(gitShow + '%s')
     hash = getInfo(gitShow + '%h')
   } catch(err) {
