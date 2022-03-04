@@ -14,6 +14,7 @@ import { body2Obj } from './utils'
 
 const { log } = window.console
 
+moment.locale('zh-cn')
 window.moment = moment
 
 log('f-com: ', fCom)
