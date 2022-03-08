@@ -17,7 +17,8 @@ module.exports = {
     hot: true,
     port: 8060,
     open: false,
-    quiet: false
+    quiet: false,
+    host: '0.0.0.0'
   },
   devtool: 'cheap-module-eval-source-map',
   resolve: {
@@ -31,7 +32,7 @@ module.exports = {
         test: /\.tsx?$/,
         loader: "ts-loader",
         options: {
-          configFile: path.resolve(__dirname, 'types/tsconfig.json')
+          configFile: path.resolve(__dirname, 'tsconfig.json')
 　　　　　}
       }
     ]
