@@ -117,3 +117,14 @@ if(isFF) { ... }
   * logGitInfo(infoObj[, color1 = '#1475b2', color2 = '#42c02e']): 带样式打印对象key value于浏览器端
   
 
+## GPS坐标系间的转换
+  * transB2T(longitude, latitude) 百度转腾讯（高德、谷歌）
+  ```javascript
+  transB2T(113.819326, 22.630472)
+  // { longitude: 113.xxx, latitude: 22.xxxx }
+  ```
+  * transT2B(longitude, latitude) 腾讯转百度
+
+  * wgs84tobd09 wgs84坐标转bd09坐标(bd09为百度坐标系)
+  
+  * wgs84togcj02 wgs84转gcj02（gcj02为高德、腾讯、谷歌坐标系）
