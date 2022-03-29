@@ -7,15 +7,11 @@ import fCom, {
   removeRepeat,
   arrayRemoveRepeat
 } from './index'
-import moment from 'moment'
 import './test/sort'
 import './test/lodash'
 import { body2Obj } from './utils'
 
 const { log } = window.console
-
-moment.locale('zh-cn')
-window.moment = moment
 
 log('f-com: ', fCom)
 const info = {
