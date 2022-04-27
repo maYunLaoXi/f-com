@@ -1,6 +1,5 @@
 const childProcess = require('child_process')
 const { mosaicEmail } = require('../../dist/f-com.cjs')
-console.log({ mosaicEmail })
 /**
  * 获取git的基本信息，依赖nodejs
  * @param {Boolean} mEmail 是否打码邮箱
