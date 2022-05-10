@@ -7,8 +7,7 @@ declare global {
 type BoFn = () => boolean
 
 let inBrowser = false,
-  isMobile = false, isWeiXin = false, isIos = false, isAndroid = false, isXiaoMi = false, isHongMi = false, isIE = false, isIE9 = false, isEdge = false, isChrome = false, isFF = false;
-let isMiniProgram: boolean | BoFn
+  isMobile = false, isWeiXin = false, isIos = false, isAndroid = false, isXiaoMi = false, isHongMi = false, isIE = false, isIE9 = false, isEdge = false, isChrome = false, isFF = false, isMiniProgram = () => false
 
 if(typeof window === 'undefined') {
   inBrowser = false
