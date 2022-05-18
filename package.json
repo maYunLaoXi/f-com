@@ -53,6 +53,7 @@
     "rollup-plugin-uglify": "^6.0.4",
     "ts-jest": "^26.4.3",
     "ts-loader": "^8.0.9",
+    "tslib": "1.14.0",
     "typescript": "^4.0.5",
     "webpack": "^4.44.2",
     "webpack-cli": "3",
