@@ -22,3 +22,14 @@ export const keep2Decimals = (numOrStr: number | string, mathod: 'floor' | 'roun
   }
   return m(num * 100) / 100
 }
+
+/**
+ * 生成随机整数
+ * @param minus 是否负数
+ * @returns 
+ */
+export function randomInt(minus: boolean = false): number {
+  const num = Number(Math.random().toString().split('0.')[1])
+  if(minus) return -num
+  else return num
+}

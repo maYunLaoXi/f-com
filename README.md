@@ -1,6 +1,6 @@
 # 开发常用到的工具集合
 
-使用typescritp篇写，jest测试，rullup构建。加入了webpack也可以写点简单测试
+支持typescritp
 
 ## usage
 ```

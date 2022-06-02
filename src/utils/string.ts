@@ -87,3 +87,12 @@ function createLangthString(langth: number | string) {
   }
   return string
 }
+
+/**
+ * 生成随机字符串
+ * @param pre 前缀
+ * @returns 随机字符
+ */
+export function randomStr(pre: string = ''):string{
+  return pre + Math.random().toString(36).slice(-6)
+}
