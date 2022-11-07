@@ -1,6 +1,6 @@
 # 开发常用到的工具集合
 
-支持typescritp
+支持typescript
 
 ## usage
 ```
@@ -19,6 +19,26 @@ if(fCom.isMobile) { ... }
 或
 ```
 import { isMobile } from 'f-com'
+```
+
+### 微信小程序版
+微信小程序版本去掉一些小程序中不支持的浏览器接口，并且添加一些wx相当接口。
+
+```
+npm install f-com --production
+```
+
+typescript支持：
+```
+// tsconfig.json 添加类型引用
+{
+  "compilerOptions": {
+    ...
+    "paths": {
+      "f-com": ["node_modules/f-com/miniprogram_dist/types.d.ts"]
+    }
+  }
+}
 ```
 
 ## 数组（以下为文档）

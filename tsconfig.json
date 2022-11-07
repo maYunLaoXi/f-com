@@ -4,7 +4,8 @@
     "declaration": true,
     "declarationDir": "types",
     "strict": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": ["miniprogram-api-typings"]
   },
   "exclude": ["node_modules", "dist", "src/test", "test", "src/pack.ts"]
 }

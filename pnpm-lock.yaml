@@ -16,6 +16,7 @@ specifiers:
   jest: ^26.4.2
   jszip: ^3.7.0
   lodash: ^4.17.20
+  miniprogram-api-typings: ^3.6.0
   path: ^0.12.7
   rollup: ^2.28.2
   rollup-plugin-babel: ^4.4.0
@@ -35,6 +36,7 @@ specifiers:
 
 dependencies:
   lodash: 4.17.21
+  miniprogram-api-typings: 3.6.0
 
 devDependencies:
   '@babel/core': 7.17.12
@@ -5617,6 +5619,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /miniprogram-api-typings/3.6.0:
+    resolution: {integrity: sha512-xwK3PzhhxnfWqDfBikHLdAbj7Wy4F887nBcQrzwuF758Fw2qC4ivpKPL9t0uJZk5QYnU28+NqA7Q3lzYGMHQnA==}
+    dev: false
 
   /mississippi/3.0.0:
     resolution: {integrity: sha512-x471SsVjUtBRtcvd4BzKE9kFC+/2TeWgKCgw0bZcw1b9l2X3QX5vCWgF+KaZaYm87Ss//rHnWryupDrgLvmSkA==}

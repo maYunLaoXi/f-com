@@ -2,3 +2,4 @@
 .DS_Store
 node_modules
 /dist
+/miniprogram_dist
