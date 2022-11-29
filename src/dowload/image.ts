@@ -49,7 +49,7 @@ export async function dowloadZip(src: string, JsZip: JsZip, zipAuthor: ZipAuthor
   const srcs = typeof src === 'string' ? [src] : src
   const zip = new JsZip()
   for(let item of srcs) {
-    const name = item.match(/[^\/]+?$/)
+    const name = item.split('?')[0].match(/[^\/]+?$/)
     const content = await imgSrc2base64(item)
     zip.file(name ? name[0] : 'image', content.split('base64,')[1], { base64: true })
   }
