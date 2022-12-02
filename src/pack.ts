@@ -1,5 +1,6 @@
 // webpack 入口文件
 
+import './index.css'
 // import fCom, { isMobile} from './f-com-1.1.5'
 import fCom, { 
   logGitInfo, isMobile, isChrome,  mosaicEmail, keep2Decimals, format, readableTime,
@@ -10,6 +11,7 @@ import fCom, {
 import './test/sort'
 import './test/lodash'
 import { body2Obj } from './utils'
+import JsZip from 'jszip'
 
 const { log } = window.console
 
@@ -23,7 +25,7 @@ const info = {
   readableTime: readableTime(new Date('2020'))
 }
 logGitInfo(info)
-startReport(function(a) {
+startReport(function(a: string) {
   console.log('reported', a)
 })
 // 测试report 
@@ -48,3 +50,12 @@ const arr2 = [
 ]
 log(removeRepeat(arr2, 'id'),
   arrayRemoveRepeat(arr, 'id'))
+
+const dlimg = document.getElementById('dowloadImage')
+const dlzip = document.getElementById('dowloadZip')
+const img = document.getElementById('smms1')
+
+dlimg?.onclick = () => {
+  console.log(img.src)
+  fCom.dowloadImage({ src: img?.src, JsZip })
+}
