@@ -123,7 +123,7 @@ if(isFF) { ... }
   // 	直接下载
   fCom.dowloadImage({ src: 'http://img.jpg' })
   
-  // 打包下载
+  // do
   fCom.dowloadImage({ src: 'http://img.jpg', zip: true, JsZip })
   
   // 多个src， 打包下载
