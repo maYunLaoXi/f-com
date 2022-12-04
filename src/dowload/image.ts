@@ -8,7 +8,7 @@ type JsZip = {
 }
 
 export type ImgZipParams = {
-  src: string,
+  src: string | string[],
   JsZip: JsZip,
   fileName?: string,
   zip?: boolean,
@@ -16,7 +16,7 @@ export type ImgZipParams = {
   removeParams?: boolean
 }
 export type DowloadZipType = {
-  src: string,
+  src: string | string[],
   JsZip: JsZip,
   fileName?: string,
   otherFiles?: {
@@ -70,7 +70,7 @@ export async function dowloadZip({ src, JsZip, fileName, otherFiles, removeParam
   const zip = new JsZip()
   for(let item of srcs) {
     const name = item.split('?')[0].match(/[^\/]+?$/)
-    const imgUrl = removeParams ? item.split('?')[0] : src
+    const imgUrl = removeParams ? item.split('?')[0] : item
     
     const content = await imgSrc2base64(imgUrl)
     zip.file(name ? name[0] : 'image', content.split('base64,')[1], { base64: true })
