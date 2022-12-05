@@ -7,5 +7,5 @@
     "esModuleInterop": true,
     "types": ["miniprogram-api-typings"]
   },
-  "exclude": ["node_modules", "dist", "src/test", "test", "src/pack.ts"]
+  "exclude": ["node_modules", "miniprogram_dist", "dist", "src/test", "test", "src/pack.ts", "example"]
 }
