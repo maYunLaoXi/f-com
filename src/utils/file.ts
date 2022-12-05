@@ -9,7 +9,7 @@ export const imgSrc2base64: (val: string) => Promise<string> =  src => {
   const image = new Image();
   // 解决跨域 canvas 污染问题
   image.setAttribute('crossOrigin','anonymous');
-  return new Promise(resolve => {
+  return new Promise<string>(resolve => {
     image.onload = function(){
       const canvas: HTMLCanvasElement = document.createElement('canvas');
       canvas.width = image.width;

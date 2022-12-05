@@ -8,28 +8,22 @@ logGitInfo({ name: 'vite-project' })
 defineProps<{ msg: string }>()
 
 const srcs = [
-    "https://img.zcool.cn/community/018qm015eahq0brygvyq7f3131.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01j4nhjimnbueyfoo5g3vg3735.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01oxq3unkxvgwgnfk3esyg3335.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01x1nt5cpmqtd3hpxtwtqe3439.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01lqvjelilx8rkdqcafbvi3031.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01ictg9b5oiilezm19zclx3634.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01yr4ian2jhx4avesa6t813339.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01wa9qof0tbwlhsyrx2ewk3236.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/012d1raaxswjsd1txbfznt3431.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01ctbedzl0hg8fouekkhbs3832.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01etq3kabsg0xflqqz9jfr3239.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01aidrjysqzfruwacbyn3n3037.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/011cphjcx7em5dr5jjpxto3830.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01adwltsth7eikpumyzgrz3230.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/015f5ye37dlri5soeck4sv3730.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
-    "https://img.zcool.cn/community/01nkhcoioudjpvhyiiuo4p3830.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100"
+    "https://img.zcool.cn/community/01ccd862a6ec5c0002c313f73b210c.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01f3d062a6ec600002c45e37966330.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01b99962a6ec680002c313f7811013.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01778862a6ec6d0002c313f7c23267.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01a88d62a6ec710002c313f733fbbd.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01205b62a6ec770002c45e37060a36.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01e08962a6ec7d0002c313f7ea6b54.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01afb662a6ec820002c313f7359613.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/014d9262a6ec890002c45e3714ffac.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100",
+    "https://img.zcool.cn/community/01811e62a6ec920002c45e37f52b29.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100/format,webp/quality,q_100"
 ]
 const btn = ref('dowloadZip')
 const dowload = function() {
   btn.value = '正在下载'
   console.log(btn.value)
-  dowloadZip({ src: srcs, JsZip: JSZip, fileName: 'test-dl.zip'}).then(res => {
+  dowloadZip({ src: srcs, JsZip: JSZip, fileName: 'test-dl.zip', removeParams: true }).then(res => {
     btn.value = 'dowloadZip'
   })
 }

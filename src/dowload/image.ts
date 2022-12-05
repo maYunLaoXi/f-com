@@ -68,13 +68,18 @@ export async function dowloadZip({ src, JsZip, fileName, otherFiles, removeParam
   }
   const srcs = typeof src === 'string' ? [src] : src
   const zip = new JsZip()
+  const all = []
   for(let item of srcs) {
-    const name = item.split('?')[0].match(/[^\/]+?$/)
-    const imgUrl = removeParams ? item.split('?')[0] : item
-    
-    const content = await imgSrc2base64(imgUrl)
-    zip.file(name ? name[0] : 'image', content.split('base64,')[1], { base64: true })
+    all.push(new Promise((resolve, reject) => {
+      const name = item.split('?')[0].match(/[^\/]+?$/)
+      const imgUrl = removeParams ? item.split('?')[0] : item
+      imgSrc2base64(imgUrl).then(content => {
+        zip.file(name ? name[0] : 'image', content.split('base64,')[1], { base64: true })
+        resolve(true)
+      }).catch(reject)
+    }))
   }
+  await Promise.all(all)
   if(otherFiles){
     if(!Array.isArray(otherFiles)) {
       console.error(`otherFiles需要传入数组，${otherFiles}`)
