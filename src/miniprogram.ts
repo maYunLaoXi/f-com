@@ -1,0 +1,7 @@
+export * from './utils/number'
+export * from './utils/string'
+export * from './utils/coordtransform'
+export * from './utils/array'
+export * from './utils/object'
+export * from './utils/location'
+export * from './weapp/index'

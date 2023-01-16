@@ -1,16 +1,17 @@
 // 数组的方法
 /**
- * 对像元素的数组去重, 会更改原数组
+ * 对像元素的数组去重, 会更改原数组
  * @param { Array } arr 数组，
  * @param { String } key 用于查重的元素属性
  */
-export const arrayRemoveRepeat = (arr:[], key: string) => {
+export const arrayRemoveRepeat = (arr: {}[], key: string) => {
   return removeRepeat(arr, key)
 }
-export const removeRepeat = (arr:[], field: string) => {
+export const removeRepeat = (arr: {}[], field: string) => {
   let s = {}
   for(let i = 0; i < arr.length; i++){
-      s[arr[i][field]] = arr[i]
+    // @ts-ignore
+    s[arr[i][field]] = arr[i]
   }
   return Object.values(s)
 }

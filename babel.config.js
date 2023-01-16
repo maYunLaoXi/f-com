@@ -23,7 +23,7 @@ module.exports =  function(api) {
         }
       ]
     ],
-    ignore: ["./node/*.js"]
+    ignore: ["./src/node/*.js", "./src/weapp/bmap-wx.js"]
   }
   let config = isTest ? { presets } : dom
   return config

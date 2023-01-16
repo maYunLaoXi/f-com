@@ -7,6 +7,7 @@ import typescript from 'rollup-plugin-typescript2'
 import dts from 'rollup-plugin-dts'
 
 const outputDisk = './dist/'
+const miniprogramDisk = './miniprogram_dist/'
 
 const config = {
   input: './src/index.ts',
@@ -50,6 +51,16 @@ const packages = [
       file: outputDisk + 'f-com.cjs.js',
       format: 'cjs'
     }
+  },
+  { // 小程序版
+    input: './src/miniprogram.ts',
+    output: {
+      file: miniprogramDisk + 'index.js',
+      format: 'umd'
+    },
+    // plugins: [
+    //   uglify()
+    // ]
   }
 ]
 const result = []
@@ -59,6 +70,10 @@ for(let item of packages) {
 result.push({
   input: 'dist/index.d.ts',
   output: [{ file: 'dist/types.d.ts', format: 'es' }],
+  plugins: [dts()]
+}, {
+  input: 'miniprogram_dist/miniprogram.d.ts',
+  output: [{ file: 'miniprogram_dist/types.d.ts', format: 'es' }],
   plugins: [dts()]
 })
 export default result
