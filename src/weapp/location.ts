@@ -1,3 +1,6 @@
+/**
+ * 使用百度地图api 请将https://api.map.baidu.com加入可信域名
+ */
 // @ts-ignore
 import BMapWX from './bmap-wx.js'
 
@@ -27,8 +30,8 @@ export const initBmap = (ak: string) => {
 }
 
 /**
- * 
- * @returns 
+ * 获取带有城市名的位置信息
+ * @returns { latitude: xxx, longitude: xxx, city: xxx }
  */
 export const getLocationCity = () => {
   return new Promise((resolve, reject) => {
@@ -43,7 +46,7 @@ export const getLocationCity = () => {
         try {
           let city = await getCity(latitude, longitude)
           if (city[city.length - 1] === '市') city = city.substring(0, city.length - 1)
-          resolve({ latitude, longitude, city }) 
+          resolve({ latitude, longitude, city })
         } catch (err) {
           reject(err)
         }
@@ -52,7 +55,6 @@ export const getLocationCity = () => {
         reject(error)
       }
     })
-
   })
 }
 export function regeocoding(latitude: number, longitude: number) {
