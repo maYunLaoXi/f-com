@@ -46,7 +46,7 @@ export const getLocationCity = () => {
         try {
           let city = await getCity(latitude, longitude)
           if (city[city.length - 1] === '市') city = city.substring(0, city.length - 1)
-          resolve({ latitude, longitude, city })
+          resolve({ latitude, longitude, city  })
         } catch (err) {
           reject(err)
         }
@@ -73,4 +73,28 @@ export function regeocoding(latitude: number, longitude: number) {
 export async function getCity(latitude: number, longitude: number) {
   const regeocod = await regeocoding(latitude, longitude)
   return regeocod.originalData.result.addressComponent.city
+}
+/**
+ * location的改版，配合百度地图regeocoding 返回具体的地址 省市级等
+ * @param params WechatMiniprogram.GetLocationOption
+ * @returns 
+ */
+export async function getLocation(params: WechatMiniprogram.GetLocationOption = {}) {
+  const { type = 'gcj02', altitude = false, isHighAccuracy = false } = params
+  return new Promise((resolve, reject) => {
+    wx.getLocation({
+      ...params,
+      type,
+      altitude,
+      isHighAccuracy,
+      success: async res => {
+        const regeocod = await regeocoding(res.latitude, res.longitude)
+        resolve({
+          ...res,
+          ...regeocod.originalData.result
+        })
+      },
+      fail: reject
+    })
+  })
 }
