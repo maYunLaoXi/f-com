@@ -15,14 +15,6 @@ export function param2Obj(url: string, noDecodeURIComponent: boolean): object {
   return body2Obj(search, noDecodeURIComponent)
 }
 /**
- * param2Obj 的反向操作
- * @param obj 
- */
-export function obj2ParamsStr(obj: Params) {
-  Object.keys(obj).map(key => `${key}=${encodeURIComponent(obj[key])}`).join('&');
-}
-
-/**
  * 将a=1&b=2` 转换为 key value 对像
  * @param {string} url
  * @param {boolean} noDecodeURIComponent 是否用decodeURIComponent转换

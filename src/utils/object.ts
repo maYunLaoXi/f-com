@@ -14,3 +14,11 @@ export const logGitInfo = (infoObj: object, color1: string = '#1475b2', color2: 
     log(...a)
   }
 }
+
+/**
+ * param2Obj 的反向操作
+ * @param obj 
+ */
+export function obj2ParamsStr(obj: { [propName: string]: string | number }) {
+  return Object.keys(obj).map(key => `${key}=${encodeURIComponent(obj[key])}`).join('&')
+}
