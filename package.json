@@ -1,6 +1,6 @@
 {
   "name": "f-com",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "开发中常用到的工具及组件",
   "main": "dist/f-com.min.js",
   "module": "dist/f-com.es.js",
@@ -9,8 +9,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest --config test/jest.config.js",
     "build": "NODE_ENV=production npx rollup -c",
-    "build:type": "tsc --emitDeclarationOnly",
-    "dev": "webpack-dev-server --inline --progress"
+    "build:type": "tsc --emitDeclarationOnly"
   },
   "repository": {
     "type": "git",

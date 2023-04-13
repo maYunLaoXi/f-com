@@ -1,20 +1,25 @@
 /**
  * 提示更新应用
  * @param {Boolean} showUpdate 是否提示更新
+ * @param forceUpdate 强制更新 需要配合showUpdate一起使用
  */
 type UpdateParams = {
   showUpdate: boolean,
   modalTitle?: string,
   modalContent?: string,
-  log?: boolean
+  log?: boolean,
+  forceUpdate?: boolean
 }
 
-export const update = (param: UpdateParams) => {
+export const update = (param: UpdateParams = {
+  showUpdate: false
+}) => {
   const {
     showUpdate = false,
     modalTitle = '有新版本',
     modalContent = '新版本已经准备好，是否重启应用？',
-    log = true
+    log = true,
+    forceUpdate
   } = param
   return new Promise((resolve, reject) => {
     const updateManager = wx.getUpdateManager()
@@ -32,6 +37,7 @@ export const update = (param: UpdateParams) => {
       wx.showModal({
         title: modalTitle,
         content: modalContent,
+        showCancel: !forceUpdate,
         success: function (res) {
           if (res.confirm) {
             // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
