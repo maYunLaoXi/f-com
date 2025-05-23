@@ -3,3 +3,4 @@
 node_modules
 /dist
 /miniprogram_dist
+/types
