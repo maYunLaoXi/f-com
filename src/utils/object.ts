@@ -19,6 +19,9 @@ export const logGitInfo = (infoObj: object, color1: string = '#1475b2', color2: 
  * param2Obj 的反向操作
  * @param obj 
  */
-export function obj2ParamsStr(obj: { [propName: string]: string | number }) {
-  return Object.keys(obj).map(key => `${key}=${encodeURIComponent(obj[key])}`).join('&')
+export function obj2ParamsStr(obj: { [propName: string]: string | number }, encode?: boolean) {
+  return Object.keys(obj).map((key) => {
+    if (encode) return `${key}=${encodeURIComponent(obj[key])}`
+    return `${key}=${obj[key]}`
+  }).join('&')
 }
