@@ -68,6 +68,22 @@ for(let item of packages) {
   result.push(merge(config, item))
 }
 result.push({
+  input: './src/main.ts',
+  output: {
+    dir: './dist/es',
+    format: 'es',
+    preserveModules: true,
+    preserveModulesRoot: 'src',
+    entryFileNames: '[name].js'
+  },
+  plugins: [
+    commonjs({ include: 'node_modules/**' }),
+    resolve(),
+    babel({ runtimeHelpers: true, exclude: 'node_modules/**' }),
+    typescript()
+  ]
+})
+result.push({
   input: 'dist/index.d.ts',
   output: [{ file: 'dist/types.d.ts', format: 'es' }],
   plugins: [dts()]

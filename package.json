@@ -1,11 +1,33 @@
 {
   "name": "f-com",
-  "version": "1.90.0",
+  "version": "1.92.0",
   "description": "开发中常用到的工具及组件",
   "main": "dist/f-com.min.js",
   "module": "dist/f-com.es.js",
   "types": "dist/types.d.ts",
   "miniprogram": "miniprogram_dist",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/f-com.es.js",
+      "require": "./dist/f-com.cjs.js",
+      "default": "./dist/f-com.es.js"
+    },
+    "./*": {
+      "types": "./dist/es/*.d.ts",
+      "import": "./dist/es/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "utils/*": ["dist/es/utils/*"],
+      "internal/*": ["dist/es/internal/*"],
+      "weapp/*": ["dist/es/weapp/*"],
+      "dowload/*": ["dist/es/dowload/*"],
+      "entry/*": ["dist/es/entry/*"]
+    }
+  },
   "scripts": {
     "test": "NODE_ENV=test jest --config test/jest.config.js",
     "build": "NODE_ENV=production npx rollup -c",
